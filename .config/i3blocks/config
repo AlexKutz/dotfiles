@@ -1,0 +1,98 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+
+command=$HOME/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+
+[speedtest]
+command=$HOME/.config/i3blocks/speedtest/speedtest
+interval=300
+
+[iface]
+IFACE=wlan0
+color=#00FF00
+interval=30
+display_wifi_name=1
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+separator=true
+interval=30
+
+#[memory]
+#label=SWAP
+#instance=swap
+#separator=true
+#interval=30
+
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+
+[volume-pipewire]
+interval=once
+signal=1
+USE_ALSA_NAME=1
+LONG_FORMAT="${SYMB}${VOL}%"
+
+[brightness]
+label= 
+#command=./brightness/bin/brightness -a /sys/class/backlight/intel_backlight/actual_brightness -m /sys/class/backlight/intel_backlight/max_brightness
+interval=persist
+# Date Time
+#
+[xkb_layout]
+font_weight=bold
+interval=persist
+markup=pango
+
+[key_layout]
+label=Layout
+interval=30
+
+# Battery indicator
+#
+# The battery instance defaults to 0.
+[battery]
+markup=pango
+interval=30
+
+[time]
+command=date '+%dd-%mm %H:%M:%S '
+interval=5
