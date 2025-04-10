@@ -4,17 +4,16 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Print whether
-curl wttr.in/Stara+Syniava?format="%l:+%c+%t+(%f)+%w\n"
-
 # ls aliaces
-alias ls='ls -Fh --color=auto'
-alias lsa="ls -a"
+alias ls='ls --color=auto -Fh --group-directories-first --no-group'
+alias lsa="ls -A"
 alias ll="ls -l"
-alias lla="ll -a"
+alias lla="ll -A"
+alias l.='ls -d .*'
 
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
+
+PS1='\[\033[1;32m\][\u \w]\[\033[0m\]\$ '
 
 alias vim=nvim
 
