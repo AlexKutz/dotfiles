@@ -71,10 +71,10 @@ signal=1
 USE_ALSA_NAME=1
 LONG_FORMAT="${SYMB}${VOL}%"
 
-[brightness]
-label= 
+#[brightness]
+#label= 
 #command=./brightness/bin/brightness -a /sys/class/backlight/intel_backlight/actual_brightness -m /sys/class/backlight/intel_backlight/max_brightness
-interval=persist
+#interval=persist
 # Date Time
 #
 [xkb_layout]

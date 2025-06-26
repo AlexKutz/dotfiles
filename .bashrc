@@ -5,7 +5,7 @@
 [[ $- != *i* ]] && return
 
 # ls aliaces
-alias ls='ls --color=auto -Fh --group-directories-first --no-group'
+alias ls='ls --color=auto -Fh --group-directories-first'
 alias lsa="ls -A"
 alias ll="ls -l"
 alias lla="ll -A"
@@ -22,7 +22,16 @@ alias dotfiles='git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 
-alias feh="feh"
+alias cat='bat --paging=never'
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+
+alias bathelp='bat --plain --language=help'
+help() {
+  "$@" --help 2>&1 | bathelp
+}
+batdiff() {
+  git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
 
 # Отображать битые сылки красным в ls
 export LS_COLORS="$LS_COLORS:or=31"
