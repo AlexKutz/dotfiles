@@ -6,10 +6,11 @@
 
 # ls aliaces
 alias ls='ls --color=auto -Fh --group-directories-first'
-alias lsa="ls -A"
+alias la="ls -A"
 alias ll="ls -l"
 alias lla="ll -A"
 alias l.='ls -d .*'
+alias ll.='ll -d .*'
 
 alias grep='grep --color=auto'
 
